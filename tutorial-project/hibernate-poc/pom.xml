@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.tutorial</groupId>
+    <artifactId>tutorial-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>hibernate-poc</artifactId>
+  <name>hibernate-poc</name>
+  <packaging>jar</packaging>
+
+  <dependencies>
+  	<!-- Hibernate 3.6.10 Final -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+	</dependency>
+	<!-- Oracle14 dependency  -->
+	<dependency>
+	 	<groupId>com.oracle</groupId>
+	 	<artifactId>ojdbc14</artifactId>
+	 	<version>${oracle14.db.version}</version>
+	 </dependency>
+	
+	 <!-- Oracle8 jdbc driver in case of oracle12 database -->
+<!-- 	<dependency>
+	    <groupId>com.github.noraui</groupId>
+	    <artifactId>ojdbc8</artifactId>
+	    <version>${oracle8.db.version}</version>
+	</dependency> -->
+	<dependency>
+    	<groupId>javassist</groupId>
+    	<artifactId>javassist</artifactId>
+    	<version>3.12.1.GA</version>
+	</dependency>
+  </dependencies>
+</project>

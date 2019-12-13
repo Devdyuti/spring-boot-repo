@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">     
+
+ <hibernate-configuration>
+ 	<session-factory>
+ 		
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<!-- <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:rcde</property> -->
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+		<property name="hibernate.connection.username">system</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">false</property>
+		
+		<mapping class="org.tutorial.hibernate.poc.autoddl.Employee" />
+		
+		<!-- Inheritance relationship using discriminator value -->
+		<mapping class="org.hibernate.poc.orm.inheritance.Student" />
+		<mapping class="org.hibernate.poc.orm.inheritance.JavaStudent" />
+		<mapping class="org.hibernate.poc.orm.inheritance.DotNetStudent" />
+		<mapping class="org.hibernate.poc.orm.inheritance.PhpStudent" />
+		
+		<!-- Inheritance table per sub-class 'IS-A Relationship' -->
+		
+		<mapping class="org.tutorial.hibernate.poc.orm.inheritance.table_per_subclass.Animal" />
+		<mapping class="org.tutorial.hibernate.poc.orm.inheritance.table_per_subclass.Dog" />
+		<mapping class="org.tutorial.hibernate.poc.orm.inheritance.table_per_subclass.Cat" />
+		
+		<!-- Inheritance table per concrete-class 'IS-A Relationship' -->
+		<mapping class="org.tutorial.hibernate.poc.orm.inheritance.table_per_concreteClass.Fruit" />
+		<mapping class="org.tutorial.hibernate.poc.orm.inheritance.table_per_concreteClass.Apple" />
+		<mapping class="org.tutorial.hibernate.poc.orm.inheritance.table_per_concreteClass.Orange" />
+		
+		<!-- Assotiation example OneToOne Mapping -->
+		<mapping class="org.tutorial.hibernate.poc.association.Voter" />
+		<mapping class="org.tutorial.hibernate.poc.association.Vote" />
+		
+		<!-- Assotiation example OneToMany Mapping -->
+		<mapping class="org.tutorial.hibernate.poc.association.Teacher" />
+		<mapping class="org.tutorial.hibernate.poc.association.Topic" />
+		
+		<!-- Assotiation example ManyToOne Mapping -->
+<!-- 		<mapping class="org.tutorial.hibernate.poc.association.PGStudent" />
+		<mapping class="org.tutorial.hibernate.poc.association.Address" /> -->
+
+ 	</session-factory>
+ </hibernate-configuration>
