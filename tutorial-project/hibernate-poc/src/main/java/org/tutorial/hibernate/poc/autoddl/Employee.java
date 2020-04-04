@@ -22,6 +22,7 @@ public class Employee implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	
 	private int id;
+	@Column(updatable=false)
 	private String name;
 	@Column(name="email", unique=true, columnDefinition="varchar(64)")
 	private String email;

@@ -3,16 +3,23 @@ package org.tutorial.jpa.tuto.controller;
 
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.tutorial.jpa.tuto.entity.Userx;
 import org.tutorial.jpa.tuto.service.UserxService;
@@ -42,6 +49,20 @@ public class UserxController {
 			LOGGER.error("EXCEPTION IN USERCONTROLLER"+e.getMessage());
 		}
 		return null;
+	}
+	//@GetMapping("/findAll")
+	@RequestMapping(value="/findAll", method=RequestMethod.GET)
+	public List<Userx> findAll(){
+		return userService.allUser();
+	}
+	@RequestMapping(value="/findAllx", method=RequestMethod.GET, produces="application/xml")
+	public ResponseEntity<List<Userx>> findAllUsers(){
+		final HttpHeaders header=new HttpHeaders();
+		header.setContentType(MediaType.APPLICATION_XML);
+		header.add("Status", "OK");
+		List<Userx> users=userService.allUser();
+		return new ResponseEntity<List<Userx>>(users,header, HttpStatus.OK);
+		
 	}
 
 }

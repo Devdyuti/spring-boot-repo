@@ -18,19 +18,21 @@ public class ManyToOne {
 			session=sf.openSession();
 			tx=session.beginTransaction();
 			
-			List<PGStudent> list_student=new ArrayList<PGStudent>();
-			PGStudent s1=new PGStudent(1, "Devdyuti");
-			PGStudent s2=new PGStudent(2, "Ramesh");
-			list_student.add(s1);
-			list_student.add(s2);
+			Address add2=new Address(2, "Main campus hostel");
 			
-			Address address=new Address(1, "Ganga Nagar Hostel");
-			address.setStudents(list_student);
+			PGStudent s1=new PGStudent(3, "Amit", add2);
+			PGStudent s2=new PGStudent(4, "Pawan", add2);
+		
+			List<PGStudent> list_students=new ArrayList<PGStudent>();
+			list_students.add(s1);
+			list_students.add(s2);
 			
+			
+			add2.setStudents(list_students);
+			
+			session.save(add2);
 			session.save(s1);
 			session.save(s2);
-			
-			session.save(address);
 
 
 			

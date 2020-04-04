@@ -55,6 +55,10 @@ public class Topic implements Serializable{
 		this.teacher=teacher;
 	}
 	
+	public Topic() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	
 	

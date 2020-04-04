@@ -19,20 +19,23 @@ public class OneToMany {
 			session=sf.openSession();
 			tx=session.beginTransaction();
 			
-			Teacher teacher=new Teacher(1, "Durga");
+			Teacher teacher=new Teacher(2, "Naveen");
 			
-			Topic t1=new Topic(1, "java", 60, teacher);
-			Topic t2=new Topic(2, "php", 30, teacher);
+			Topic t1=new Topic(1, "Spring core", 60, teacher);
+			Topic t2=new Topic(2, "Spring mvc", 30, teacher);
+			Topic t3=new Topic(3, "Spring aop", 40, teacher);
 			
 			List<Topic> list=new ArrayList<Topic>();
 			list.add(t1);
 			list.add(t2);
+			list.add(t3);
 			
 			teacher.setTopics(list);
 			
 			session.save(teacher);
 			session.save(t1);
 			session.save(t2);
+			session.save(t3);
 
 
 			

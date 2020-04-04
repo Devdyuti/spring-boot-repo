@@ -62,7 +62,7 @@ public class TutorialConfig {
 		ds.password(PROPERTY_PASSWORD);
 		ds.driverClassName(PROPERTY_DRIVER);
 		
-		//DriverManagerDataSource ds = new DriverManagerDataSource();
+//		DriverManagerDataSource ds = new DriverManagerDataSource();
 //		ds.setUrl(PROPERTY_URL));
 //		ds.setUsername(PROPERTY_USERNAME));
 //		ds.setPassword(PROPERTY_PASSWORD));

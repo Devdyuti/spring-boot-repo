@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.criteria.JoinType;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity(name="teacher")
 @Table(name="tutorial.teacher")
@@ -25,6 +29,7 @@ public class Teacher implements Serializable{
 	private String name;
 	
 	@OneToMany(mappedBy = "teacher")
+	@Fetch(FetchMode.JOIN)
 	private List<Topic> topics;
 		
 	public int getTeacher_id() {
@@ -49,6 +54,10 @@ public class Teacher implements Serializable{
 		super();
 		this.teacher_id = teacher_id;
 		this.name = name;
+	}
+	
+	public Teacher() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	

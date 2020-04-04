@@ -22,8 +22,8 @@ public class OneToOne {
 				session=sf.openSession();
 				tx=session.beginTransaction();
 				
-				Voter v=new Voter(1, "Sudhir", 30);
-				Vote vt=new Vote("BJP", new Date());
+				Voter v=new Voter(3, "Mohan", 33);
+				Vote vt=new Vote("AAP", new Date());
 				vt.setVoter(v);
 				
 				

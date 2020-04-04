@@ -1,5 +1,7 @@
 package org.tutorial.jpa.tuto.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tutorial.jpa.tuto.entity.Userx;
@@ -14,6 +16,10 @@ public class UserxServiceImpl implements UserxService{
 	@Override
 	public Userx addUser(Userx user) {
 		return userRepository.save(user);
+	}
+	@Override
+	public List<Userx> allUser() {
+		return userRepository.findAll();
 	}
 
 }

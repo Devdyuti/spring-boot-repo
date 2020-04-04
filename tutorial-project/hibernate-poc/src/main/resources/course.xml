@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.tutorial.hibernate.poc.association.xml.based.Course" table="tutorial.course" schema="system">
+		<id name="id" type="long">
+			<column name="cid" />
+			<generator class="assigned" />
+		</id>
+		<property name="cname" column="cname" type="string"/>
+		<property name="cfee" column="cfee" type="long"/>
+		<set name="faculties" table="tutorial.facultyCourse" fetch="select" cascade="all">
+			<key column="cid" />
+			<many-to-many class="org.tutorial.hibernate.poc.association.xml.based.Faculty" column="fid" />
+		</set>
+	</class>
+</hibernate-mapping>

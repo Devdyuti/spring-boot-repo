@@ -14,7 +14,6 @@
 		<property name="hibernate.connection.password">root</property>
 		<property name="show_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
-		<property name="show_sql">true</property>
 		<property name="format_sql">false</property>
 		
 		<mapping class="org.tutorial.hibernate.poc.autoddl.Employee" />
@@ -45,8 +44,17 @@
 		<mapping class="org.tutorial.hibernate.poc.association.Topic" />
 		
 		<!-- Assotiation example ManyToOne Mapping -->
-<!-- 		<mapping class="org.tutorial.hibernate.poc.association.PGStudent" />
-		<mapping class="org.tutorial.hibernate.poc.association.Address" /> -->
+		<mapping class="org.tutorial.hibernate.poc.association.PGStudent" />
+		<mapping class="org.tutorial.hibernate.poc.association.Address" />
+		
+		<!-- Association example ManyToMany -->
+		<mapping class="org.tutorial.hibernate.poc.association.Faculty" />
+		<mapping class="org.tutorial.hibernate.poc.association.Course" />
+<!-- 	XMl based mapping for ManyToMany
+		<mapping resource="faculty.xml" />
+		<mapping resource="course.xml" /> -->
+		
+		<mapping class="org.tutorial.hibernate.poc.autoddl.Devdyuti" />
 
  	</session-factory>
  </hibernate-configuration>
