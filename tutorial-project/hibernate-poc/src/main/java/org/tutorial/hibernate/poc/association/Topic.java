@@ -2,6 +2,7 @@ package org.tutorial.hibernate.poc.association;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity(name="topic")
 @Table(name="tutorial.topic")
@@ -22,11 +26,13 @@ public class Topic implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int tid;
+	@Column(name="tname", unique = true)
 	private String tname;
 	private int tduration;
 	
 	@ManyToOne
 	@JoinColumn(name="teacher_id", nullable = false)
+//	@Cascade(CascadeType.ALL)
 	private Teacher teacher;
 	
 	public int getTid() {

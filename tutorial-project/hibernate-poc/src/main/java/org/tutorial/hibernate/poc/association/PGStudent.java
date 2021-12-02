@@ -2,17 +2,13 @@ package org.tutorial.hibernate.poc.association;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.apache.commons.collections.functors.FalsePredicate;
 
 @Entity(name="pgstudent")
 @Table(name="tutorial.pgstudent")

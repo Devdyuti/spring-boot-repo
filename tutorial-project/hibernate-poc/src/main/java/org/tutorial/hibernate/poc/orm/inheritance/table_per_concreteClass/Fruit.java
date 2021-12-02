@@ -10,6 +10,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ForeignKey;
+
 @Entity(name="fruit")
 @Table(name="tutorial.fruit")
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)

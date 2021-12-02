@@ -26,6 +26,9 @@ public class Employee implements Serializable{
 	private String name;
 	@Column(name="email", unique=true, columnDefinition="varchar(64)")
 	private String email;
+	
+	@Column(name="salary")
+	private double salary;
 		
 	public int getId() {
 		return id;
@@ -46,9 +49,16 @@ public class Employee implements Serializable{
 		this.email = email;
 	}
 	
-	public Employee(String name, String email) {
+	public Employee(String name, String email, double salary) {
 		this.name = name;
 		this.email = email;
+		this.salary=salary;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
 	}
 	public Employee() {
 		super();

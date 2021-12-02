@@ -4,6 +4,7 @@ package org.tutorial.jpa.tuto.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.tutorial.jpa.tuto.entity.Userx;
+import org.tutorial.jpa.tuto.exception.RecordNotFoundException;
 import org.tutorial.jpa.tuto.service.UserxService;
 
 @RestController
@@ -43,14 +46,8 @@ public class UserxController {
 	
 	@PostMapping("/add")
 	public Userx insertUser(@RequestBody Userx user) {
-		try {
-			return userService.addUser(user);
-		}catch (Exception e) {
-			LOGGER.error("EXCEPTION IN USERCONTROLLER"+e.getMessage());
-		}
-		return null;
+		return userService.addUser(user);
 	}
-	//@GetMapping("/findAll")
 	@RequestMapping(value="/findAll", method=RequestMethod.GET)
 	public List<Userx> findAll(){
 		return userService.allUser();
@@ -63,6 +60,14 @@ public class UserxController {
 		List<Userx> users=userService.allUser();
 		return new ResponseEntity<List<Userx>>(users,header, HttpStatus.OK);
 		
+	}
+	@RequestMapping(value="/findUserById/{id}", method = RequestMethod.GET)
+	public Optional<Userx> findUserById(@PathVariable int id) throws Exception {
+		Optional<Userx> user=userService.findUser(id);
+		if(user.isPresent())
+			return user;
+		else
+			throw new RecordNotFoundException("USER NOT AVLAIBLE!!");
 	}
 
 }

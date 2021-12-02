@@ -1,6 +1,7 @@
 package org.tutorial.jpa.tuto.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,11 @@ public class UserxServiceImpl implements UserxService{
 	public List<Userx> allUser() {
 		return userRepository.findAll();
 	}
+	@Override
+	public Optional<Userx> findUser(long id) throws Exception {
+		return userRepository.findById(id);
+	}
 
+	
+	
 }

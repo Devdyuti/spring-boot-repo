@@ -70,10 +70,15 @@
     	<artifactId>lombok</artifactId>	
 	 </dependency>
 	 <!-- JDBC connectors -->
-	 <dependency>
+<!-- 	 <dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
-	</dependency>
+	</dependency> -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>6.1.0.jre8</version>
+		</dependency>
 <!-- 	<dependency>
 	 	<groupId>com.oracle</groupId>
 	 	<artifactId>ojdbc14</artifactId>

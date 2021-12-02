@@ -2,6 +2,7 @@ package org.tutorial.hibernate.poc.association;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class Voter implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	
 	private int vid;
+	@Column(name="name", unique = true)
 	private String name;
 	private int age;
 	

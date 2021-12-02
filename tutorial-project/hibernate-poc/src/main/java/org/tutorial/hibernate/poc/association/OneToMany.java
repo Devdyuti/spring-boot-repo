@@ -1,7 +1,6 @@
 package org.tutorial.hibernate.poc.association;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -19,11 +18,13 @@ public class OneToMany {
 			session=sf.openSession();
 			tx=session.beginTransaction();
 			
-			Teacher teacher=new Teacher(2, "Naveen");
+			Teacher teacher=new Teacher(2, "XXNaveen");
 			
-			Topic t1=new Topic(1, "Spring core", 60, teacher);
-			Topic t2=new Topic(2, "Spring mvc", 30, teacher);
-			Topic t3=new Topic(3, "Spring aop", 40, teacher);
+			
+			Topic t1=new Topic(1, "XXSpring core", 60, teacher);
+			Topic t2=new Topic(2, "XXSpring mvc", 30, teacher);
+			Topic t3=new Topic(3, "XXSpring aop", 40, teacher);
+
 			
 			List<Topic> list=new ArrayList<Topic>();
 			list.add(t1);
@@ -32,18 +33,18 @@ public class OneToMany {
 			
 			teacher.setTopics(list);
 			
-			session.save(teacher);
+			session.save(teacher);  // if using CASCADE then no need to save Parent. when child save, Parent will save automatically.
 			session.save(t1);
 			session.save(t2);
 			session.save(t3);
-
-
+			
 			
 			tx.commit();
 			
 		}catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Exception: "+e.getMessage());
 			tx.rollback();
+			System.out.println("Data Rollbacked");
 		}finally {
 			session.close();
 			sf.close();
