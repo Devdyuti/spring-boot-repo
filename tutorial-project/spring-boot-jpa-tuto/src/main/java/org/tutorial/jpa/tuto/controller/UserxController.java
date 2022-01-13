@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.tutorial.jpa.tuto.entity.Userx;
-import org.tutorial.jpa.tuto.exception.RecordNotFoundException;
+//import org.tutorial.jpa.tuto.exception.RecordNotFoundException;
 import org.tutorial.jpa.tuto.service.UserxService;
 
 @RestController
@@ -67,7 +67,8 @@ public class UserxController {
 		if(user.isPresent())
 			return user;
 		else
-			throw new RecordNotFoundException("USER NOT AVLAIBLE!!");
+			throw new RuntimeException();
+//			throw new RecordNotFoundException("USER NOT AVLAIBLE!!");
 	}
 
 }

@@ -14,7 +14,7 @@
   	<module>spring-ws</module>
     <module>jcr-data-migration</module>-->
 	<module>spring-boot-jpa-tuto</module>
-    <module>hibernate-poc</module> 
+    <!--<module>hibernate-poc</module> --> 
     
   </modules>
   

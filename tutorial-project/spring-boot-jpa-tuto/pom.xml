@@ -70,26 +70,27 @@
     	<artifactId>lombok</artifactId>	
 	 </dependency>
 	 <!-- JDBC connectors -->
-<!-- 	 <dependency>
+ 	 <dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
-	</dependency> -->
-		<dependency>
+	</dependency> 
+<!--		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
 			<version>6.1.0.jre8</version>
-		</dependency>
+		</dependency>-->
 <!-- 	<dependency>
 	 	<groupId>com.oracle</groupId>
 	 	<artifactId>ojdbc14</artifactId>
 	 	<version>${oracle14.db.version}</version>
 	 </dependency> -->
-	 <!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->	 
+	 <!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
+<!--	 
 <dependency>
     <groupId>oracle</groupId>
     <artifactId>ojdbc6</artifactId>
     <version>11.2.0.3</version>
-</dependency>
+</dependency>-->
 <dependency>
 	<groupId>javax.servlet</groupId>
 	<artifactId>javax.servlet-api</artifactId>
